@@ -1,1 +1,45 @@
-<p>recipes works!</p>
+<app-header></app-header>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <h4>Filter</h4>
+            <button class="btn mt-5">All</button>
+            <!-- cuisine dropdown menu -->
+             <br>
+             <button class="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Cuisine Type
+            </button>
+            <div class="collapse my-2" id="collapseExample">
+                <!-- duplicate cuise -->
+                 <button class="btn">cuisine</button>
+            </div>
+            <!-- meal type dropdown menu -->
+             <br>
+             <button class="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                Meal Type
+            </button>
+            <div class="collapse my-2" id="collapseExample1">
+                <!-- duplicate cuise -->
+                 <button class="btn">meal</button>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>All Recipes</h1>
+                <input type="text" placeholder="Search by Recipe name" class="form-control w-50" >
+            </div>
+            <div class="row my-3">
+                <div class="col-lg-4">
+                     <div class="p-3">
+                        <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
+                        <div class="card-body mt-2">
+                            <h5 class="card-title">recipe-name</h5>
+                            <p>Cuisine : name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer> 

@@ -7,9 +7,10 @@
     rotate: 180deg;
 }
 .scroll-text {
+  
   white-space: nowrap;
   display: inline-block;
-  animation: scroll-left 10s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
 
 @keyframes scroll-left {

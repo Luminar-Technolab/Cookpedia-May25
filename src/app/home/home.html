@@ -24,54 +24,18 @@
             <a routerLink="/recipes">View All</a>
         </div>
         <div class="row my-3">
-            <div class="col-lg-4">
-                <div class="p-3">
-                    <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">recipe-name</h5>
+            @for (recipe of allRecipes; track $index) {
+                <div class="col-lg-4">
+                    <div class="p-3">
+                        <img [src]="recipe.image" alt="recipe" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{recipe.name}}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-             <div class="col-lg-4">
-                <div class="p-3">
-                    <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">recipe-name</h5>
-                    </div>
-                </div>
-            </div>
-             <div class="col-lg-4">
-                <div class="p-3">
-                    <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">recipe-name</h5>
-                    </div>
-                </div>
-            </div>
-             <div class="col-lg-4">
-                <div class="p-3">
-                    <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">recipe-name</h5>
-                    </div>
-                </div>
-            </div>
-             <div class="col-lg-4">
-                <div class="p-3">
-                    <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">recipe-name</h5>
-                    </div>
-                </div>
-            </div>
-             <div class="col-lg-4">
-                <div class="p-3">
-                    <img src="https://cdn.dummyjson.com/recipe-images/2.webp" alt="recipe" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">recipe-name</h5>
-                    </div>
-                </div>
-            </div>
+            }
+           
+            
         </div>
     </div>
     <!-- recipe banner  -->
@@ -99,10 +63,14 @@
       <!-- testimony -->
     <div class="my-5 text-center">
         <h1>Client Testimonials</h1>
-       <div class="scroll-text">
-  This is scrolling text using CSS animation!
-</div>
+       <div class="scroll-text my-5 d-flex">
+        <!-- duplicate according to client review -->
+            <div class="border rounded p-3 shadow me-2 w-25 text-wrap">
+                <span class="fw-bold">Client-name </span> <p style="text-align: justify;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illum doloribus omnis amet cum accusantium reprehenderit quae debitis asperiores, tenetur magni sunt impedit veniam quisquam autem expedita obcaecati. </p>
+            </div>
+            
+       </div>
 
     </div>
 </div>
-<app-footer/>
+<app-footer/> 
