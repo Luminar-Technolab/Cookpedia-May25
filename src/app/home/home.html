@@ -26,8 +26,8 @@
         <div class="row my-3">
             @for (recipe of allRecipes; track $index) {
                 <div class="col-lg-4">
-                    <div class="p-3">
-                        <img [src]="recipe.image" alt="recipe" class="card-img-top">
+                    <div class="p-3"> 
+                        <img  [src]="recipe.image" alt="recipe" class="card-img-top img-fluid"  >
                         <div class="card-body">
                             <h5 class="card-title">{{recipe.name}}</h5>
                         </div>
@@ -56,8 +56,8 @@
         <div class="col-lg-6 text-center">
             <h1>Download App</h1>
             <h5>Download the App from App Store or <br> Google Play for a better experience</h5>
-            <img width="150px" src="https://freepngimg.com/download/android/67006-app-play-google-android-store-free-clipart-hd.png" alt="android">
-            <img width="150px" src="https://benic360.com/wp-content/uploads/2020/06/apple-store-icon-png-8.png" alt="ios">
+            <img width="150px" height="100px" src="https://freepngimg.com/download/android/67006-app-play-google-android-store-free-clipart-hd.png" alt="android" loading="eager">
+            <img width="150px" height="140px" src="https://benic360.com/wp-content/uploads/2020/06/apple-store-icon-png-8.png" alt="ios" loading="lazy">
         </div>
     </div>
       <!-- testimony -->
