@@ -1,0 +1,85 @@
+
+
+    ANGULAR - FRONT END TECHNOLOGY
+---------------------------------------
+
+1. Angular is a full-featured front-end framework for building web applications.
+2. Features of Angular
+   - Built with TypeScript
+   - Uses components and templates
+   - Includes routing, forms, HTTP, and dependency injection
+   - Supports standalone APIs (no NgModules needed)
+   - Works great for single-page applications (SPAs)
+3. Angular compiles your templates into efficient JavaScript and updates the DOM when your component state changes.
+4. Install Angular cli : npm i -g @angular/cli
+    - Angular commands Works only in in its cli
+    - To check angular cli : ng v
+5. Angular project creation : ng new project-name
+    - to run angular project : npm start / ng serve
+    - to view output use localhost:4200
+
+    ------------Basic Commands in Angular-------------------
+    - Project creation : ng new project-name
+    - to run project : ng s / npm start
+    - create component : ng g c component-name
+    - create service : ng g s service-folder/service-name
+    - create pipes : ng g p pipe-folder/pipe-name
+
+6. Components : Reusable piece of codes used to design web application, every component consist of 4 file 
+    - component ts file
+    - template html file
+    - style css file
+    - testing spec.ts file
+- Default root component of angular app is 'App' Component, its defined in main.ts file
+- Decorators : used to provide configuarational metadata, Decorators are preceed with @ symbol
+- Selector : used in html page and it will replace its corresponding component template
+- Data Binding : Communication between files inside component, it can be of 2 types
+    - One way Binding : data flows in one direction at a time
+        - component (ts file) to view (html file)
+            - String Interpolation : data from component can be used in view within double curly braces {{component data}}
+            - Property/Attribute Binding: we can Bind component data with html tag Attribute, [tag-Attribute] = "class Property"
+        - view (html) to component (ts) file :
+            - Event Binding : (eventName)="function-name()"
+            - Event Binding using '$event' as argument : (eventName)="function-name($event)" - $event used to provide information regarding event to binding function in component
+            - Event binding using template reference variable : template reference variable used to refer html tag they are variable-name preceed with # symbol
+    - Two way binding : data flows in both direction at same time
+        - using ngModel : Adds two-way data binding to an HTML form element. , used to manage form , [(ngModel)]="class Property"
+- Directives : are classes that add additional behavior (manage forms, lists, styles, and what users see.) to elements in your Angular applications.
+    - types of Angular directives are as follows:
+        - Component Directives : Used with a template. This type of directive is the most common directive type.
+        - Attribute Directives : Change the appearance or behavior of an element, component, or another directive.
+            - ngClass : Adds and removes a set of CSS classes. import NgClass
+            - ngStyle : Adds and removes a set of HTML styles.
+            - ngModel : Adds two-way data binding to an HTML form element, import FormsModule
+        - Structural Directives : used to add/remove html element based on component Property
+- Control Flow statements : preceed with @ symbol inside html page, @if, @else, @else if, @for, @switch
+- Pipe :  special operator in Angular template expressions that allows you to transform data, Angular pipes use the vertical bar character (|)
+- Components : are used to design angular application, it can be standalone or group components, to genearate component use command : ng g c component-name
+- Set up path for component 
+    - Make sure AppConfig file provide Router
+    - To set uop path add path object to routes array in app.routes.ts file
+    - path object format : {path:'',component:component-class-name}
+    - use 'router-outlet' selector in root component inorder to view component in browser according to the path Properly
+    - use 'Router' class in component for redirection from one page to another using ts
+- Dependency Injection : used to access data from dependent predefined class & services to component, DI can be performed in ways
+    - using constructor : constructor(access-specifier variable-name:dependent-class-name){}
+    - using inject() : const class-variable = inject(dependent-class-name)
+- Services : used to share common logic between components, so that it reduces coupling between components. 
+    - create service : ng g s service-folder/service-name
+- Asynchronus function Handling in Angular 
+    - use Asynchronus function Handling in rxjs library
+    - 'Observable' used in ts to resolve Asynchronus function, Observable can handle multiple Asynchronus function at a time,  An Observable is like a data stream. to get data from Observable use subscribe it gives data whenever it available
+    - To resolve Observable use 'subscribe' method, its argument is an object which consist of keys like next , complete, error etc. where next gives resolved state, error gives reject state
+- API Call in angular
+    - to enable api call in angular add provideHttpClient in app.config.ts file
+    - uses HttpClient class, it provides http methods, returns Observable
+- Life cycle methods of angular Component
+    - ngOnChanges : it calls when input Property of component changes
+    - ngOnInit : Component is initialised, it called only once, 
+    - ngDoCheck : Changes detection trigger, it called every time angular detect changes
+    - ngAfterContentInit : 
+    - ngAfterContentChecked : 
+    - ngAfterViewInit : 
+    - ngAfterViewChecked
+    - ngOnDestroy
+
