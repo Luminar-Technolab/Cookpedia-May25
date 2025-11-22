@@ -13,21 +13,36 @@
         </div>
         <div class="col-lg-1"></div>
         <div class="col-lg-4">
-            <form [formGroup]="registerForm" style="width: 500px;background-color: rgba(0, 0, 0, 0.1);" class="border rounded shadow p-5 mt-5" >
+            <form (ngSubmit)="register()" [formGroup]="registerForm" style="width: 500px;background-color: rgba(0, 0, 0, 0.1);" class="border rounded shadow p-5 mt-5" >
                 <div class="mb-5 text-center">
                     <h3><i class="fa-solid fa-utensils me-2"></i>Cookpedia</h3>
                 </div>
                 <div class="mb-3">
                     <input formControlName="username" name="username" type="text" placeholder="Username" class="form-control">
                 </div>
+                @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
+                    <div class="mb-3 text-danger">
+                     *Invalid Username
+                    </div>
+                }
                 <div class="mb-3">
-                    <input type="text" placeholder="E Mail" class="form-control">
+                    <input formControlName="email" name="email" type="text" placeholder="E Mail" class="form-control">
                 </div>
+                @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+                    <div class="mb-3 text-danger">
+                     *Invalid Email
+                    </div>
+                }
                 <div class="mb-3">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input formControlName="password" name="password" type="password" placeholder="Password" class="form-control">
                 </div>
+                @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+                    <div class="mb-3 text-danger">
+                     *Invalid Password
+                    </div>
+                }
                 <div class="mb-3 d-grid">
-                    <button class="btn btn-success">Register</button>
+                    <button type="submit"  class="btn btn-success">Register</button>
                 </div>
             </form>
         </div>

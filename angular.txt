@@ -82,4 +82,11 @@
     - ngAfterViewInit : 
     - ngAfterViewChecked
     - ngOnDestroy
+- Form Handling in Angular
+    - Template Driven forms : use ngModel, first design html page then get dta from form using ngModel 
+    - Model Driven forms : first create model for the form in ts file, then link model with html form, example is
+        - Reactive Forms : Import ReactiveFormsModule, It consist of 3 parts
+            - Form group : uses formBuilder class instance, similar model, used to link form tag to model
+            - Form array : used to hold input tag, also can pass validation using Validator global class
+            - Form Control : used to link input tag with form group
 
