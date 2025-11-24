@@ -3,10 +3,10 @@ import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
 import { RouterLink } from "@angular/router";
 import { ApiService } from '../services/api-service';
-import { NgOptimizedImage } from "@angular/common";
+
 @Component({
   selector: 'app-home',
-  imports: [Header, Footer, RouterLink, NgOptimizedImage],
+  imports: [Header, Footer, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
