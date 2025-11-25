@@ -2,11 +2,13 @@ import { Component, inject } from '@angular/core';
 import { Header } from "../header/header";
 import { Footer } from '../footer/footer';
 import { ApiService } from '../services/api-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-view-recipe',
-  imports: [Header,Footer],
+  imports: [Header, Footer, RouterLink],
   templateUrl: './view-recipe.html',
   styleUrl: './view-recipe.css',
 })
@@ -52,6 +54,24 @@ export class ViewRecipe {
         this.relatedRecipes = []
       }
     })
+  }
+//api form download 
+  addToDownload(){
+   this.api.addToDownloadAPI(this.recipe).subscribe((res:any)=>{
+    this.downloadRecipe()
+   })
+  }
+
+  //downloadRecipe
+  downloadRecipe(){
+    let pdf = new jsPDF()
+    let headRow=['Name','Cuisine','Servings','Ingriendents','Instructions']
+    let bodyData=[this.recipe.name,this.recipe.cuisine,this.recipe.servings,this.recipe.ingredients,this.recipe.instructions]
+    autoTable(pdf,{
+      head:[headRow],
+      body:[bodyData]
+    })
+    pdf.save('recipe.pdf')
   }
 }
 
