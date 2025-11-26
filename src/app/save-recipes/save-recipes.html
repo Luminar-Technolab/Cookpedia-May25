@@ -1,1 +1,28 @@
-<p>save-recipes works!</p>
+<app-header/>
+<div class="container my-5">
+    <!-- content when recipes array has element -->
+     @if (recipes.length>0) {
+        <h1 class="mb-5 text-primary">My Collection</h1>
+        <div class="row my-3">
+            @for (recipe of recipes; track $index) {
+                <div class="col-lg-3">
+                    <div class="p-3"> 
+                        <img  [src]="recipe.recipeImage" alt="recipe" class="card-img-top img-fluid"  >
+                        <div class="card-body mt-2 d-flex align-items-center justify-content-between">
+                            <h5 class="card-title">{{recipe.recipeName}}</h5>
+                            <button (click)="deleteRecipe(recipe._id)" class="btn"><i class="fa-solid fa-trash text-danger"></i></button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+     }@else {
+    <!-- when recipe array is empty -->
+        <div style="height: 80vh;" class="d-flex justify-content-center align-items-center flex-column">
+            <img class="w-25" src="https://wrogn.com/cdn/shop/t/139/assets/empty-cart-animation.gif?v=151928765131702147801740727907" alt="empty list">
+            <h1>Oops!!! Your Collection is Empty...</h1>
+            <a routerLink="/recipes" class="btn btn-primary">Add More...</a>
+        </div>
+     }
+</div>
+<app-footer/>

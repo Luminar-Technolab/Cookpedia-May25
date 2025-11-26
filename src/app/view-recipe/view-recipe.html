@@ -7,7 +7,7 @@
             <img class="img-fluid my-5" [src]="recipe.image" alt="recipe">
             <div class="d-flex justify-content-between">
                 <button (click)="addToDownload()" class="btn btn-success">Download Recipe</button>
-                <button class="btn btn-primary">Add To Collection</button>
+                <button (click)="saveRecipe()"  class="btn btn-primary">Add To Collection</button>
             </div>
         </div>
         <div class="col-lg-6">

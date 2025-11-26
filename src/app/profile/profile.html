@@ -1,1 +1,65 @@
-<p>profile works!</p>
+<app-header/>
+<div class="container ">
+    <div style="height: 200px;" class="bg-success row"></div>
+    <div>
+        <img width="200px" height="200px" style="border-radius: 50%; margin-top: -100px;" class="border p-2 ms-5" src="https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000" alt="profile">
+    </div>
+    <div class="m-5">
+        <h3 >Welcome user 
+            <button class="btn"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"><i class="fa-solid fa-edit text-primary"></i></button>
+        </h3>
+        <p style="text-align: justify;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe est ullam maxime, animi ab similique. Libero saepe praesentium accusantium consectetur expedita, id architecto perferendis voluptas ut incidunt voluptate aspernatur? Earum.
+        Voluptatum velit eius nobis unde iusto asperiores ducimus rem excepturi eligendi. Consequatur fuga error iure nulla debitis consectetur, sapiente nesciunt est neque libero vitae maiores architecto omnis saepe unde laudantium?
+        Sequi cum laboriosam sint consequatur modi doloribus perferendis incidunt quasi dolores odio illo cumque magni nostrum iste, possimus animi eaque illum quam repellat enim voluptatibus explicabo quod facere? Laborum, necessitatibus!</p>
+
+        <h2 class="my-5">Download Recipe List</h2>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="p-3"> 
+                    <img  src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636" alt="recipe" class="card-img-top img-fluid"  >
+                    <div class="card-body">
+                        <h5 class="card-title">name</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer/>
+
+<!-- offcanvas -->
+ <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profile Updation</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores saepe earum soluta quidem voluptatem, rem magni eum provident repellendus </p> -->
+    <form  class="my-5 border rounded p-3">
+        <div class="text-center mb-3">
+            <input type="file" id="profile" hidden>
+            <label for="profile">
+                <img width="100px" height="100px" style="border-radius: 50%;" src="https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000" alt="profile">
+                <span style="margin-top: 100px; margin-left: -50px;" class="btn  btn-primary"><i class="fa-solid fa-edit"></i></span>
+            </label>
+            
+        </div>
+        <div class="form-floating mb-3">
+        <input name="username" [(ngModel)]="username" type="text" class="form-control" id="floatingInput" placeholder="username">
+        <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+        <input name="password" [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">New Password</label>
+        </div>
+        <div class="form-floating mb-3">
+        <input name="confirmPassword" [(ngModel)]="confirmPassword" type="password" class="form-control" id="floatingPassword1" placeholder="Password">
+        <label for="floatingPassword1">Confirm Password</label>
+        </div>
+        <div class="d-grid ">
+            <button class="btn btn-warning text-light">Update</button>
+        </div>
+    </form>
+  </div>
+</div>
