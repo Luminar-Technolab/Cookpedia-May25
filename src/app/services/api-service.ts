@@ -60,4 +60,15 @@ export class ApiService {
     // recipes/:id/download
     return this.http.delete(`${this.serverURL}/save-recipes/${recipeId}/remove`,this.appendToken())
   }
+
+  //get user recipe download list - /recipes/user/download
+  getUserRecipeDownloadListAPI(){
+    // recipes/:id/download
+    return this.http.get(`${this.serverURL}/recipes/user/download`,this.appendToken())
+  }
+  //users/:id/edit
+  updateUserAPI(user:any){
+       return this.http.post(`${this.serverURL}/users/${user.id}/edit`,user,this.appendToken()) 
+  }
+
 }
