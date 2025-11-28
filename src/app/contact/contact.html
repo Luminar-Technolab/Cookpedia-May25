@@ -66,17 +66,17 @@
             <form class="border rounded shadow p-5">
                 <h3>Client Testimony</h3>
                 <div class="mb-3 mt-5">
-                    <input placeholder="Name" type="text" class="form-control">
+                    <input name="name" [(ngModel)]="name" placeholder="Name" type="text" class="form-control">
                 </div>
                 <div class="mb-3 ">
-                    <input placeholder="E Mail" type="text" class="form-control">
+                    <input name="email" [(ngModel)]="email" placeholder="E Mail" type="text" class="form-control">
                 </div>
                 <div class="mb-3 ">
-                    <textarea placeholder="Message" type="text" class="form-control"></textarea>
+                    <textarea name="message" [(ngModel)]="message" placeholder="Message" type="text" class="form-control"></textarea>
                 </div>
                 <p class="my-4 text-secondary">By Submitting, your agreeing the terms and condition of our website. We may use your details in our site.</p>
                 <div class="float-end ">
-                    <button class="btn btn-success ">Submit</button>
+                    <button (click)="addFeedback()" class="btn btn-success ">Submit</button>
                 </div>
             </form>
         </div>

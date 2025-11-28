@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
+import { ApiService } from '../services/api-service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +13,12 @@ export class Header {
   isLoggedin:boolean = false
   loginUsername:string = ""
   router = inject(Router)
-
+  api = inject(ApiService)
   ngOnInit(){
     if(sessionStorage.getItem("token") && sessionStorage.getItem("user")){
       this.isLoggedin = true
-      this.loginUsername = JSON.parse(sessionStorage.getItem("user") || "")?.username?.split(" ")[0]
+      // this.loginUsername = JSON.parse(sessionStorage.getItem("user") || "")?.username?.split(" ")[0]
+      this.loginUsername = this.api.loginUsername()
     }
   }
 

@@ -1,13 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   
+  loginUsername= signal("")
   http = inject(HttpClient)
   serverURL ="http://localhost:3000"
+
+  constructor(){
+    if(sessionStorage.getItem("user")){
+      const user = JSON.parse(sessionStorage.getItem("user") || "")
+      this.loginUsername.set(user.username)     
+    }
+  }
 
   //getallrcipes
   getAllRecipesAPI(){
@@ -20,6 +28,11 @@ export class ApiService {
   //login
   loginAPI(reqBody:any){
     return this.http.post(`${this.serverURL}/login`,reqBody)
+  }
+
+  //addfeedback - user/feedback
+  addfeedbackAPI(feedback:any){
+    return this.http.post(`${this.serverURL}/user/feedback`,feedback)
   }
 
   //appendToken : return token append req haeder

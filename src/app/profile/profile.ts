@@ -12,16 +12,17 @@ import { Router } from '@angular/router';
   styleUrl: './profile.css',
 })
 export class Profile {
-
-  username:string = ""
+  
+  api=inject(ApiService)
+  router = inject(Router)
+  username:string = this.api.loginUsername()
   password:string =""
   confirmPassword:string = ""
   userId:string = ""
   // profile:string = "https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000"
   profile = signal("https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000")
   downloadList:any = []
-  api=inject(ApiService)
-  router = inject(Router)
+  
   constructor(){
     if(sessionStorage.getItem("user")){
       const user = JSON.parse(sessionStorage.getItem("user") || "")
@@ -68,6 +69,7 @@ export class Profile {
       }else{
       this.api.updateUserAPI({username:this.username,password:this.password,profile:this.profile(),id:this.userId}).subscribe((res:any)=>{
           sessionStorage.setItem("user",JSON.stringify(res))
+          this.api.loginUsername.set(res.username)
           alert("Profile updated successfully")
           if(this.password!="") {
             this.router.navigateByUrl('/login')
