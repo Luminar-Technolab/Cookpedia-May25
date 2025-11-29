@@ -1,13 +1,88 @@
 <div class="container-fluid">
-    <div class="row">
-        <div style="min-height: 100vh;" class="col-lg-2 bg-success">
-            <app-admin-sidebar/>
-        </div>
-        <div class="col">
-            <div class="pt-3 bg-success row d-flex justify-content-between align-items-center">
-                <h3 class="text-light"> <button class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button> Welcome Admin </h3>
-                <button class="btn"></button>
-            </div>
-        </div>
+  <div class="row">
+    <div style="min-height: 100vh" class="col-lg-2 bg-success">
+      <app-admin-sidebar />
     </div>
+    <div class="col">
+        <!-- header row -->
+      <div class="row">
+          <div class="pt-3 bg-success w-100 d-flex justify-content-between align-items-center">
+            <h3 class="text-light">
+              <button class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button> Welcome
+              Admin
+            </h3>
+            <div class="dropdown">
+              <button
+                class="btn text-light dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-user"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i> </button></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <!-- row category -->
+       <div class="row   my-5">
+        <!-- box -->
+        <div class="col-lg-3 ">
+             <div style="background-color: rgba(67, 141, 37, 0.463);;" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                <i class="fa-solid fa-users fs-1"></i>
+                <div class="ms-5">
+                    <h4>Users</h4>
+                    <h3>100</h3>
+                </div>
+             </div>
+        </div>
+         <!-- box -->
+        <div class="col-lg-3">
+             <div style="background-color: rgba(37, 45, 138, 0.463);;" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                <i class="fa-solid fa-bowl-food fs-1"></i>
+                <div class="ms-5">
+                    <h4>Recipes</h4>
+                    <h3>150</h3>
+                </div>
+             </div>
+        </div>
+         <!-- box -->
+        <div class="col-lg-3">
+             <div style="background-color: rgba(87, 87, 10, 0.463);" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                <i class="fa-solid fa-download fs-1"></i>
+                <div class="ms-5">
+                    <h4>Downloads</h4>
+                    <h3>50</h3>
+                </div>
+             </div>
+        </div>
+         <!-- box -->
+        <div class="col-lg-3">
+             <div style="background-color: gray;" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
+                <i class="fa-solid fa-message fs-1"></i>
+                <div class="ms-3">
+                    <h4>Notification</h4>
+                    <h6>You have <a routerLink="/admin/feedback-list">10</a> new requests!</h6>
+                </div>
+             </div>
+        </div>
+       </div>
+       <!-- chart row -->
+       <div class="row my-5">
+        <div class="col-lg-8">
+            <highcharts-chart
+            [options]="chartOptions"
+            class="chart"
+          />
+        </div>
+        <div class="col-lg-4">
+            <mat-card class="demo-inline-calendar-card">
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+            </mat-card>
+        </div>
+       </div>
+    </div>
+  </div>
 </div>

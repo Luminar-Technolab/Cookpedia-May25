@@ -16,16 +16,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>name</td>
-                        <td>mail</td>
-                        <td>feedback</td>
-                        <td>
-                            <button class="btn btn-success"><i class="fa-solid fa-check"></i></button>
-                            <button class="btn btn-danger ms-5"><i class="fa-solid fa-x"></i></button>
+                   @for (feedback of feedbackList; track $index;let i=$index) {
+                     <tr>
+                        <td>{{i+1}}</td>
+                        <td>{{feedback.name}}</td>
+                        <td>{{feedback.email}}</td>
+                        <td>{{feedback.message}}</td>
+                        <td >
+                            @if (feedback.status=="pending") {
+                                <div class="d-flex">
+                                <button (click)="editStatus(feedback._id,'approve')" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                                <button (click)="editStatus(feedback._id,'reject')" class="btn btn-danger ms-5"><i class="fa-solid fa-x"></i></button>
+                            </div>
+                            }@else if(feedback.status=="approve"){
+                                <button class="btn btn-success">APPROVE</button>
+                            }@else {
+                                <button class="btn btn-danger ">REJECT</button>
+                            }
+                            
                         </td>
                     </tr>
+                   }
                 </tbody>
             </table>
         </div>

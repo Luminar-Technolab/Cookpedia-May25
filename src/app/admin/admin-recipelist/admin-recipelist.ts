@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
+import { ApiService } from '../../services/api-service';
 
 @Component({
   selector: 'app-admin-recipelist',
@@ -8,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class AdminRecipelist {
 
+  api = inject(ApiService)
+  allRecipes:any =[]
+  searchKey:string = ""
+
+  ngOnInit(){
+    this.getAllRecipes()
+  }
+
+  getAllRecipes(){
+    this.api.getAllRecipesAPI().subscribe((res:any)=>{
+      this.allRecipes  = res
+      console.log(this.allRecipes);
+    })
+  }
 }

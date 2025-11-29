@@ -35,6 +35,11 @@ export class ApiService {
     return this.http.post(`${this.serverURL}/user/feedback`,feedback)
   }
 
+  //get approve feedback user/feedback/approve
+ getApprovedfeedbacksAPI(){
+    return this.http.get(`${this.serverURL}/user/feedback/approve`)
+  }
+
   //appendToken : return token append req haeder
   appendToken(){
     const token = sessionStorage.getItem("token")
@@ -83,5 +88,24 @@ export class ApiService {
   updateUserAPI(user:any){
        return this.http.post(`${this.serverURL}/users/${user.id}/edit`,user,this.appendToken()) 
   }
+
+  //get all users
+  getAllUsersAPI(){
+    return this.http.get(`${this.serverURL}/users`,this.appendToken())
+  }
+  //get all downloads
+  getAllDownloadsAPI(){
+    return this.http.get(`${this.serverURL}/downloads`,this.appendToken())
+  }
+  //get all feedback
+  getAllFeedbacksAPI(){
+    return this.http.get(`${this.serverURL}/feedbacks`,this.appendToken())
+  }
+//editfeedback
+  updateFeedbackAPI(id:string,status:string){
+    return this.http.put(`${this.serverURL}/feedbacks/${id}/edit?status=${status}`,{},this.appendToken())
+  }
+
+
 
 }

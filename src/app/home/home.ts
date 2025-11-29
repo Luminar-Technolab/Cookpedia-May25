@@ -14,10 +14,12 @@ export class Home {
   //property
   allRecipes:any = []
   api = inject(ApiService)
+  allFeedbacks:any = []
 //constructor
 //lifecycle methods
   ngOnInit(){
     this.getAllRecipes()
+    this.getFeedback()
   }
   
 //userdefined functions
@@ -25,6 +27,13 @@ export class Home {
     this.api.getAllRecipesAPI().subscribe((res:any)=>{     
       this.allRecipes = res.slice(0,6)
       console.log(this.allRecipes);      
+    })
+  }
+
+  getFeedback(){
+    this.api.getApprovedfeedbacksAPI().subscribe((res:any)=>{     
+      this.allFeedbacks = res
+      console.log(this.allFeedbacks);      
     })
   }
 

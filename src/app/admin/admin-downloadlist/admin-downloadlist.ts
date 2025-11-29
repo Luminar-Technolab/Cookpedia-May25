@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ApiService } from '../../services/api-service';
 
 @Component({
   selector: 'app-admin-downloadlist',
@@ -7,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrl: './admin-downloadlist.css',
 })
 export class AdminDownloadlist {
+  api=inject(ApiService)
+  downloadList:any = []
 
+  ngOnInit(){
+    this.getAllDownloads()
+  }
+  
+  getAllDownloads(){
+    this.api.getAllDownloadsAPI().subscribe((res:any)=>{
+      this.downloadList = res
+      
+    })
+  }
 }

@@ -7,7 +7,7 @@
             <h1 class="my-5 text-center">All Recipes</h1>
             <div class="d-flex justify-content-between align-items-center">
                 <button routerLink="/admin/recipe/add" class="btn btn-primary">+ Add Recipe</button>
-                <input type="text" placeholder="Search By Recipe Name" class="form-control w-25">
+                <input [(ngModel)]="searchKey" type="text" placeholder="Search By Recipe Name" class="form-control w-25">
             </div>
             <table class="my-5 table">
                 <thead>
@@ -20,16 +20,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>name</td>
-                        <td><img width="50px" height="50px" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636" alt="recipe"></td>
-                        <td>Cuisine</td>
-                        <td >
-                            <a routerLink="/admin/recipes/id/edit" class="btn text-primary"><i class="fa-solid fa-edit"></i></a>
-                            <button class="btn text-danger"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                    @for (recipe of allRecipes | search:searchKey; track $index;let i=$index) {
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{recipe.name}}</td>
+                            <td><img width="50px" height="50px" [src]="recipe.image" alt="recipe"></td>
+                            <td>{{recipe.cuisine}}</td>
+                            <td >
+                                <a routerLink="/admin/recipes/{{recipe._id}}/edit" class="btn text-primary"><i class="fa-solid fa-edit"></i></a>
+                                <button class="btn text-danger"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

@@ -65,10 +65,11 @@
         <h1>Client Testimonials</h1>
        <div class="scroll-text my-5 d-flex">
         <!-- duplicate according to client review -->
+         @for (item of allFeedbacks; track $index) {
             <div class="border rounded p-3 shadow me-2 w-25 text-wrap">
-                <span class="fw-bold">Client-name </span> <p style="text-align: justify;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illum doloribus omnis amet cum accusantium reprehenderit quae debitis asperiores, tenetur magni sunt impedit veniam quisquam autem expedita obcaecati. </p>
+                <span class="fw-bold fs-5">{{item.name}} </span> <p style="text-align: justify;">{{item.message}}</p>
             </div>
-            
+         }
        </div>
 
     </div>
