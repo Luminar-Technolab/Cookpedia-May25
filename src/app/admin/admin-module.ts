@@ -15,6 +15,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { SearchPipe } from '../pipes/search-pipe';
 import { FormsModule } from '@angular/forms';
 import { provideHighcharts, HighchartsChartComponent } from 'highcharts-angular';
+import { A11yModule } from "@angular/cdk/a11y";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { provideHighcharts, HighchartsChartComponent } from 'highcharts-angular'
     MatDatepickerModule,
     SearchPipe,
     FormsModule,
-    HighchartsChartComponent
+    HighchartsChartComponent,
+    A11yModule
 ],
   providers:[
     provideNativeDateAdapter(),
