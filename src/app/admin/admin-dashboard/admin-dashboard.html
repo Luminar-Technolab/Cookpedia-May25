@@ -1,14 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-    <div style="min-height: 100vh" class="col-lg-2 bg-success">
+   @if (isSidebarOpen) {
+     <div style="min-height: 100vh" class="col-lg-2 bg-success">
       <app-admin-sidebar />
     </div>
+   }
     <div class="col">
         <!-- header row -->
       <div class="row">
           <div class="pt-3 bg-success w-100 d-flex justify-content-between align-items-center">
             <h3 class="text-light">
-              <button class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button> Welcome
+              <button (click)="toggleSidebar()" class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button> Welcome
               Admin
             </h3>
             <div class="dropdown">

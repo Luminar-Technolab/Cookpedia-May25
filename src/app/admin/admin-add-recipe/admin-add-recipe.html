@@ -4,8 +4,14 @@
             <app-admin-sidebar/>
         </div>
         <div class="col-lg-10">
-            <h1 class="text-center my-3">Add Recipe Details</h1>
-            <pre>{{selectedMealTypeArray | json}} </pre>
+           
+            <h1 class="text-center my-3">
+                @if(recipeId){
+                    Update
+                }@else{Add} 
+                 Recipe Details</h1>
+            <!-- <pre>{{selectedMealTypeArray | json}} </pre> -->
+             
             <div class="container my-5 border rounded shadow p-5 text-center w-75">
                 <div class="row">
                     <div class="col-md-6">
@@ -68,24 +74,39 @@
                 </div>
                 <div class="mb-3">
                     <div class="rounded border p-2">
-                        <p class="mb-2">Choose Meal Type of the Recipe :
-                            <span class="border rounded m-1 p-1">meal</span>
+                        <p class="mb-2">Select Meal  Type of the Recipe :
+                            @if (recipeId) {
+                                @for (meal of selectedMealTypeArray; track $index) {
+                                    <span class="border  rounded m-1 p-1 fw-bolder">{{meal}}
+                                        <button (click)="removeMealType(meal)"  class="btn text-danger fw-bolder"> <i class="fa-solid fa-x"></i></button>
+                                    </span>
+                                }
+                            }@else{
+                                @for (meal of selectedMealTypeArray; track $index) {
+                                <span class="border  rounded m-1 p-1 fw-bolder">{{meal}}</span>
+                                }
+                            }
+                           
                         </p>
 
                        <div class="d-flex flex-wrap my-1">
                             <!-- meal type -->
                              @for (item of mealArray; track $index) {
-                                <div class="border rounded p-1 m-2">
+                                <div class="border rounded p-1  m-2">
                                     <label [for]="item" class="d-flex align-items-center">
                                         <input (change)="chooseMeal($event)" type="checkbox" [name]="item" [id]="item" class="me-1">
-                                        {{item}}
+                                        {{item}}  
                                     </label>
                                 </div>
                              }
                        </div>
                     </div>
                 </div>
-                <button class="btn btn-success">Add Recipe</button>
+                @if(recipeId){
+                    <button (click)="updateRecipe()" class="btn  btn-warning text-light ">Update Recipe</button>
+                }@else {
+                    <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+                }
             </div>
         </div>
     </div>
