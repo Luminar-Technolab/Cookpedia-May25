@@ -9,11 +9,13 @@ import { Register } from './register/register';
 import { SaveRecipes } from './save-recipes/save-recipes';
 import { ViewRecipe } from './view-recipe/view-recipe';
 import { Pnf } from './pnf/pnf';
+import { routeGuard } from './guards/route-guard';
+import { adminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
     //lazy loaded module path
     {
-        path:'admin', loadChildren:()=>import('./admin/admin-module').then(module=>module.AdminModule)
+        path:'admin',canActivate:[adminGuard], loadChildren:()=>import('./admin/admin-module').then(module=>module.AdminModule)
     },
     //http://localhost:4200/
     {
@@ -33,7 +35,7 @@ export const routes: Routes = [
     },
     //http://localhost:4200/profile
     {
-        path:"profile", component:Profile, title:'Cookpedia - Profile'
+        path:"profile",canActivate:[routeGuard], component:Profile, title:'Cookpedia - Profile'
     },
     //http://localhost:4200/recipes
     {
@@ -45,11 +47,11 @@ export const routes: Routes = [
     },
     //http://localhost:4200/recipe/save
     {
-        path:"recipe/save", component:SaveRecipes, title:'Cookpedia - User Recipe Collection'
+        path:"recipe/save",canActivate:[routeGuard], component:SaveRecipes, title:'Cookpedia - User Recipe Collection'
     },
     //http://localhost:4200/recipes/id/view
     {
-        path:"recipes/:id/view", component:ViewRecipe, title:'Cookpedia - A Recipe'
+        path:"recipes/:id/view",canActivate:[routeGuard], component:ViewRecipe, title:'Cookpedia - A Recipe'
     },
     //http://localhost:4200/ - age not found
     {

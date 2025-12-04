@@ -58,6 +58,7 @@ export class ViewRecipe {
 //api form download 
   addToDownload(){
    this.api.addToDownloadAPI(this.recipe).subscribe((res:any)=>{
+    this.api.getChartData()
     this.downloadRecipe()
    })
   }

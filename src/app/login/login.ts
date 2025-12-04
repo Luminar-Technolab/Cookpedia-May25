@@ -31,6 +31,7 @@ export class Login {
         next:(res:any)=>{
           sessionStorage.setItem("token",res.token)
           sessionStorage.setItem("user",JSON.stringify(res.user))
+          this.api.getChartData()
           alert("Login successfull")
           res.user.role=="user" ? this.router.navigateByUrl('/'): this.router.navigateByUrl('/admin')
           this.loginForm.reset()

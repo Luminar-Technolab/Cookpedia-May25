@@ -24,6 +24,7 @@
     - create component : ng g c component-name
     - create service : ng g s service-folder/service-name
     - create pipes : ng g p pipe-folder/pipe-name
+    - Creating a route guard : ng generate guard CUSTOM_NAME
 
 6. Components : Reusable piece of codes used to design web application, every component consist of 4 file 
     - component ts file

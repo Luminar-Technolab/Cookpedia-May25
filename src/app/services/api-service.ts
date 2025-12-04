@@ -118,5 +118,17 @@ export class ApiService {
   editRecipeAPI(recipeId:string,recipe:RecipeModel){
     return this.http.put(`${this.serverURL}/recipes/${recipeId}`,recipe,this.appendToken())
   }
+
+  //chart information
+  getChartData(){
+    this.getAllDownloadsAPI().subscribe((res:any)=>{
+      let downloadListArray:any = []
+      res.forEach((item:any)=>{
+        downloadListArray.push({name:item.recipeCuisine,y:item.count})
+      })
+      console.log(downloadListArray);
+      localStorage.setItem("chart",JSON.stringify(downloadListArray))
+    })
+  }
   
 }
